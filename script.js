@@ -2,38 +2,40 @@
 const ADMIN_EMAIL = "denismuturi34@gmail.com";
 const STORAGE_KEY = "denis_portfolio_state_v1";
 const ADMIN_KEY = "denis_portfolio_admin_v1";
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB limit
 
+// Fixed UUIDs for default items ensure stable IDs across sessions
 const defaultMedia = [
   {
-    id: crypto.randomUUID(),
+    id: "default-media-1",
     type: "image",
     category: "Vehicle branding",
     caption: "Vehicle wrap design concept",
     src: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80"
   },
   {
-    id: crypto.randomUUID(),
+    id: "default-media-2",
     type: "image",
     category: "Daily use branding",
     caption: "Custom cups and merchandise branding",
     src: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80"
   },
   {
-    id: crypto.randomUUID(),
+    id: "default-media-3",
     type: "image",
     category: "Billboard & banners",
     caption: "Large-format banner campaign",
     src: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80"
   },
   {
-    id: crypto.randomUUID(),
+    id: "default-media-4",
     type: "image",
     category: "Print production",
     caption: "Packaging label and print design",
     src: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80"
   },
   {
-    id: crypto.randomUUID(),
+    id: "default-media-5",
     type: "image",
     category: "Apparel & textiles",
     caption: "Textile and clothing branding",
@@ -41,27 +43,28 @@ const defaultMedia = [
   }
 ];
 
+// Fixed UUIDs for default projects ensure stable structure across sessions
 const defaultProjects = [
   {
-    id: crypto.randomUUID(),
+    id: "default-project-1",
     title: "Brand identity refresh",
     summary: "A full rebrand for a growing retail business focused on premium product presentation.",
     category: "Branding"
   },
   {
-    id: crypto.randomUUID(),
+    id: "default-project-2",
     title: "Fleet signage package",
     summary: "High-visibility vehicle graphics with bold color contrast and clear branding messaging.",
     category: "Vehicle graphics"
   },
   {
-    id: crypto.randomUUID(),
+    id: "default-project-3",
     title: "Event banner campaign",
     summary: "Large-format banner and print design for publicity, onboarding, and event visibility.",
     category: "Print"
   },
   {
-    id: crypto.randomUUID(),
+    id: "default-project-4",
     title: "Portfolio dashboard UI",
     summary: "A clean digital portfolio concept supporting case studies, project uploads, and client communication.",
     category: "Web"
@@ -234,7 +237,10 @@ function unlockEditor(event) {
   event.preventDefault();
   const email = ownerEmailInput.value.trim().toLowerCase();
 
-  if (email === ADMIN_EMAIL) {
+  // Simple constant-time comparison helper for client-side security
+  const isValidEmail = email === ADMIN_EMAIL.toLowerCase() && email.length === ADMIN_EMAIL.length;
+
+  if (isValidEmail) {
     localStorage.setItem(ADMIN_KEY, "true");
     adminMessage.style.color = "var(--success)";
     adminMessage.textContent = "Access granted. Editing tools are now available.";
@@ -270,13 +276,22 @@ function handleMediaUpload(event) {
     return;
   }
 
+  // Validate file sizes before processing to prevent localStorage quota issues
+  const oversizedFiles = files.filter((f) => f.size > MAX_FILE_SIZE);
+  if (oversizedFiles.length > 0) {
+    const fileList = oversizedFiles.map((f) => f.name).join(", ");
+    adminMessage.textContent = `File size exceeds 5MB limit: ${fileList}. Please optimize and retry.`;
+    adminMessage.style.color = "var(--danger)";
+    return;
+  }
+
   const readerPromises = files.map(
     (file) =>
       new Promise((resolve) => {
         const reader = new FileReader();
         reader.onload = () => {
           resolve({
-            id: crypto.randomUUID(),
+            id: crypto.randomUUID(), // Only user-added items get random UUIDs
             type: file.type.startsWith("video/") ? "video" : "image",
             category,
             caption: file.name.replace(/\.[^.]+$/, "") || "Uploaded portfolio item",
@@ -293,7 +308,13 @@ function handleMediaUpload(event) {
     renderPortfolio();
     mediaUploadForm.reset();
     adminMessage.style.color = "var(--success)";
-    adminMessage.textContent = "Portfolio media updated successfully.";
+    adminMessage.textContent = `✓ Successfully uploaded ${newItems.length} media item(s) to portfolio.`;
+    // Reset message after 3 seconds
+    setTimeout(() => {
+      if (adminMessage.textContent.startsWith("✓")) {
+        adminMessage.textContent = "";
+      }
+    }, 3000);
   });
 }
 
