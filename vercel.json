@@ -2,6 +2,7 @@
   "buildCommand": "",
   "installCommand": "",
   "framework": "static",
+  "public": ".",
   "projectSettings": {
     "sourceFilesOutsideRootDirectory": false
   }
