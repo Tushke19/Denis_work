@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Official portfolio of Denis Muturi Mwangi, a Diploma in ICT holder and professional graphic designer specializing in branding, large-format printing, and digital visuals."
+    />
+    <title>Denis Muturi Mwangi | Graphic Designer & Branding Specialist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="container top-bar-inner">
+        <span>Official portfolio & creative studio</span>
+        <a href="#contact">Book a branding consultation</a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <div class="brand-mark" aria-label="Denis Muturi Mwangi brand logo">
+          <span class="brand-badge">D</span>
+          <div>
+            <strong>DENIS</strong>
+            <small>MUTURI MWANGI</small>
+          </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#projects">Projects</a>
+          <a href="#clients">Clients</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button id="adminTrigger" class="ghost-btn" type="button">Owner access</button>
+          <a class="primary-btn" href="#contact">Request quote</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero-section">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Diploma in ICT holder • Graphic designer • Branding specialist</p>
+            <h1>Professional visuals that make brands stand out.</h1>
+            <p class="lead">
+              I am Denis Muturi Mwangi, a diploma holder in ICT and a creative graphic designer with
+              deep experience in branding, print production, and visual communication for businesses,
+              events, and product marketing campaigns.
+            </p>
+
+            <div class="cta-row">
+              <a href="#portfolio" class="primary-btn">View portfolio</a>
+              <a href="#contact" class="secondary-btn">Hire me</a>
+            </div>
+
+            <ul class="hero-stats" aria-label="Key portfolio stats">
+              <li>
+                <strong>6+</strong>
+                <span>Years of creative work</span>
+              </li>
+              <li>
+                <strong>120+</strong>
+                <span>Design projects delivered</span>
+              </li>
+              <li>
+                <strong>24/7</strong>
+                <span>Client response support</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="hero-visual" aria-label="Portfolio showcase card">
+            <div class="showcase-card glow-card">
+              <div class="mini-tag">Brand identity</div>
+              <h3>Packaging • Car branding • Banners • Billboards</h3>
+              <div class="showcase-list">
+                <span>Print design</span>
+                <span>Large format</span>
+                <span>DFT / Plotter</span>
+                <span>Clothing labels</span>
+              </div>
+              <div class="service-stack">
+                <div>
+                  <strong>Branding</strong>
+                  <small>Corporate identity</small>
+                </div>
+                <div>
+                  <strong>Graphics</strong>
+                  <small>Beautiful print-ready work</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container about-grid">
+          <div class="about-card profile-card">
+            <div class="profile-header">
+              <div class="avatar">DM</div>
+              <div>
+                <p class="eyebrow small">Profile</p>
+                <h2>Denis Muturi Mwangi</h2>
+              </div>
+            </div>
+            <p>
+              I blend ICT knowledge with visual creativity to build strong, memorable brand experiences.
+              My work covers branding, signage, large-format printing, digital marketing visuals, and
+              polished communication assets that help businesses stand out in competitive markets.
+            </p>
+          </div>
+
+          <div class="about-card skill-card">
+            <p class="eyebrow small">Core specialties</p>
+            <ul class="skills-list">
+              <li>Logo and brand identity design</li>
+              <li>Car branding and fleet graphics</li>
+              <li>Billboards, banners, and POP signage</li>
+              <li>Cups, clothing, and merchandise design</li>
+              <li>DTF printing and plotter production</li>
+              <li>Large-format printing and finishing</li>
+              <li>UI/UX and developer-friendly project visuals</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio" class="section alt-section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow small">Portfolio</p>
+              <h2>Selected works</h2>
+            </div>
+            <span class="chip">Branding & print showcase</span>
+          </div>
+          <div id="portfolioGrid" class="portfolio-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow small">Coding & digital projects</p>
+              <h2>Developer portfolio</h2>
+            </div>
+            <span class="chip">Programming work</span>
+          </div>
+          <div id="projectGrid" class="project-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="clients" class="section alt-section">
+        <div class="container client-layout">
+          <div class="client-panel">
+            <p class="eyebrow small">Client request tracker</p>
+            <h2>Request queue</h2>
+            <div class="request-summary">
+              <div class="summary-box">
+                <span>Current request ID</span>
+                <strong id="requestCounter">001</strong>
+              </div>
+              <div class="summary-box">
+                <span>Open requests</span>
+                <strong id="requestCountValue">0</strong>
+              </div>
+            </div>
+            <form id="clientRequestForm" class="client-form">
+              <div class="field-row">
+                <label>
+                  Client name
+                  <input type="text" name="clientName" placeholder="Enter full name" required />
+                </label>
+                <label>
+                  Email
+                  <input type="email" name="clientEmail" placeholder="you@example.com" required />
+                </label>
+              </div>
+
+              <div class="field-row">
+                <label>
+                  Service needed
+                  <select name="serviceType" required>
+                    <option value="">Select a service</option>
+                    <option value="Logo design">Logo design</option>
+                    <option value="Branding package">Branding package</option>
+                    <option value="Car branding">Car branding</option>
+                    <option value="Billboard design">Billboard design</option>
+                    <option value="App / web mockup">App / web mockup</option>
+                    <option value="Large-format print">Large-format print</option>
+                  </select>
+                </label>
+              </div>
+
+              <label>
+                Project brief
+                <textarea name="projectDetails" placeholder="Tell me about your project, dates, and goals" rows="4" required></textarea>
+              </label>
+
+              <button type="submit" class="primary-btn submit-btn">Send project request</button>
+            </form>
+          </div>
+
+          <div class="request-panel">
+            <p class="eyebrow small">Recent client requests</p>
+            <div id="clientRequestList" class="request-list" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <div class="container contact-wrap">
+          <div class="contact-card">
+            <p class="eyebrow small">Let's connect</p>
+            <h2>Ready to build your next visual identity?</h2>
+            <p>
+              Whether you need product branding, signage, event banners, or professional digital assets,
+              I can help you turn your vision into polished visuals that attract clients and build trust.
+            </p>
+
+            <div class="social-links">
+              <a href="mailto:denismuturi34@gmail.com" target="_blank" rel="noreferrer">Email: denismuturi34@gmail.com</a>
+              <a href="https://www.facebook.com" target="_blank" rel="noreferrer">Facebook</a>
+              <a href="https://www.youtube.com" target="_blank" rel="noreferrer">YouTube</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside id="adminPanel" class="admin-shell hidden" aria-live="polite">
+      <div class="admin-panel">
+        <div class="admin-header">
+          <div>
+            <p class="eyebrow small">Owner controls</p>
+            <h3>Portfolio editor</h3>
+          </div>
+          <button id="closeAdmin" class="ghost-btn small-btn" type="button">Close</button>
+        </div>
+
+        <div id="adminAuthSection" class="auth-section">
+          <form id="adminLoginForm">
+            <label>
+              Owner email
+              <input id="ownerEmailInput" type="email" placeholder="denismuturi34@gmail.com" required />
+            </label>
+            <button type="submit" class="primary-btn">Unlock editing</button>
+            <p id="adminMessage" class="admin-message" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div id="adminEditorSection" class="editor-section hidden">
+          <div class="admin-card">
+            <h4>Upload media</h4>
+            <form id="mediaUploadForm">
+              <label>
+                Select images or videos
+                <input id="mediaUploadInput" type="file" accept="image/*,video/*" multiple />
+              </label>
+
+              <label>
+                Media category
+                <select id="mediaCategory">
+                  <option value="Vehicle branding">Vehicle branding</option>
+                  <option value="Daily use branding">Daily use branding</option>
+                  <option value="Billboard & banners">Billboard & banners</option>
+                  <option value="Apparel & textiles">Apparel & textiles</option>
+                  <option value="Print production">Print production</option>
+                </select>
+              </label>
+
+              <button type="submit" class="primary-btn">Add to portfolio</button>
+            </form>
+          </div>
+
+          <div class="admin-card">
+            <h4>Add coding project</h4>
+            <form id="projectForm">
+              <label>
+                Project name
+                <input id="projectName" type="text" placeholder="Portfolio dashboard" required />
+              </label>
+              <label>
+                Short summary
+                <textarea id="projectSummary" rows="3" placeholder="Describe the project" required></textarea>
+              </label>
+              <button type="submit" class="primary-btn">Add project</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <script src="script.js"></script>
+  </body>
+</html>
