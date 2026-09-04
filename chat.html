@@ -1,36 +1,294 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="theme-color" content="#f4efe8">
-	<title>Company Chat | A little company, right now</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f4efe8">
+    <title>Company | Chat & Live</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-	<div class="app-shell is-entered">
-		<header class="topbar">
-			<a class="brand" href="index.html" aria-label="Company home"><span class="brand-mark">+</span> company</a>
-			<div class="topbar-meta"><span class="live-dot"></span><span>Live community</span><span class="divider"></span><span id="clock">00:00</span></div>
-			<button class="icon-button" id="settings-button" type="button" aria-label="Open privacy settings" title="Privacy settings">&#9881;</button>
-		</header>
-		<main class="workspace" id="chat">
-			<aside class="sidebar">
-				<div class="welcome-block"><p class="eyebrow">A little company</p><h1>You don't have to be alone tonight.</h1><p class="welcome-copy">A calm place to talk, listen, or simply sit with someone for a while.</p></div>
-				<div class="safety-note"><span class="note-icon">i</span><p>Company is peer chat, not emergency care. If you may hurt yourself, call local emergency services now.</p></div>
-				<div class="connection-panel"><div class="panel-heading"><span>Connection</span><span class="status-pill">ready</span></div><div class="connection-row"><span class="avatar small-avatar">M</span><div><strong>Maya</strong><span>listening nearby</span></div><span class="signal-bars" aria-label="Strong connection">&#9612;&#9616;&#9618;</span></div><div class="connection-row"><span class="avatar small-avatar olive">J</span><div><strong>Jordan</strong><span>open to chat</span></div><span class="signal-bars">&#9612;&#9616;&#9618;</span></div><button class="secondary-button" id="new-connection" type="button">Find someone new <span>&rarr;</span></button></div>
-				<div class="privacy-links"><button type="button" id="location-button">Set my area <span id="location-status">optional</span></button><button type="button" id="check-button">Human check <span>18+</span></button></div>
-				<div class="support-tools"><button type="button" id="ai-button"><span class="tool-icon">✦</span><span><strong>Ask the AI guide</strong><small>Available if no one is nearby</small></span><span>&rarr;</span></button><button type="button" id="video-button"><span class="tool-icon">◉</span><span><strong>Video company</strong><small>Camera stays off until you allow it</small></span><span>&rarr;</span></button><label class="id-toggle"><span><strong>Your ID <em id="user-id-value">blurred</em></strong><small>Show only what feels right</small></span><input id="id-toggle" type="checkbox"><span class="toggle-track"></span></label></div>
-			</aside>
-			<section class="chat-panel" aria-label="Chat with Maya"><div class="chat-header"><div class="chat-person"><span class="avatar maya-avatar">M</span><div><h2>Maya</h2><p><span class="online-dot"></span> Here for a quiet conversation</p></div></div><button class="more-button" type="button" aria-label="More chat options">...</button></div><div class="conversation" id="conversation" aria-live="polite"><div class="date-divider"><span>Today, 9:41 PM</span></div><div class="message-row received"><span class="avatar tiny-avatar">M</span><div><div class="message-bubble"><p>Hey. I’m glad you found your way here.</p></div><time>9:41 PM</time></div></div><div class="message-row received"><span class="avatar tiny-avatar">M</span><div><div class="message-bubble"><p>You can say a lot, a little, or nothing at all. What kind of company would feel good right now?</p></div><time>9:42 PM</time></div></div><div class="prompt-chips" id="prompt-chips"><button type="button">I need to be heard</button><button type="button">Distract me</button><button type="button">Just stay with me</button></div></div><form class="composer" id="chat-form"><button class="round-button" type="button" id="voice-button" aria-label="Voice message" title="Voice message">&#9835;</button><label class="message-input-wrap"><span class="sr-only">Write a message</span><input id="message-input" type="text" maxlength="500" autocomplete="off" placeholder="Write something to Maya..."><span id="character-count">0 / 500</span></label><button class="send-button" type="submit" aria-label="Send message">&uarr;</button></form><p class="composer-footnote">Be kind. Be real. Keep each other safe.</p></section>
-		</main>
-	</div>
-	<dialog class="modal" id="privacy-modal"><button class="modal-close" type="button" aria-label="Close">&times;</button><p class="eyebrow">Your privacy</p><h2>Small details, your choice.</h2><p>Company never requires a sign-in. Location and camera checks are optional, explained before they run, and can be skipped at any time.</p><button class="primary-button modal-close-action" type="button">Got it</button></dialog>
-	<dialog class="modal" id="ai-modal"><button class="modal-close" type="button" aria-label="Close">&times;</button><p class="eyebrow">Company guide</p><h2>A steady place to start.</h2><p>The AI guide can help you name what you feel, find a next small step, or keep you company while we look for a person. It is not an emergency service and will ask before saving anything.</p><label class="age-confirm"><input id="ai-consent" type="checkbox"> <span>I agree to chat with the AI guide.</span></label><button class="primary-button" id="start-ai" type="button">Start with the guide</button></dialog>
-	<dialog class="modal" id="check-modal"><button class="modal-close" type="button" aria-label="Close">&times;</button><p class="eyebrow">Optional community check</p><h2>Confirm you’re human and 18+</h2><p>This demo uses your camera only to show a local preview. It does not identify you or store an image. You choose whether to continue.</p><label class="age-confirm"><input id="age-confirm" type="checkbox"> <span>I confirm I am 18 or older.</span></label><div class="camera-preview"><video id="camera-video" autoplay muted playsinline></video><span id="camera-placeholder">Camera preview appears here</span></div><div class="modal-actions"><button class="secondary-button" id="skip-check" type="button">Skip for now</button><button class="primary-button" id="start-camera" type="button">Start camera check</button></div><p class="modal-status" id="check-status"></p></dialog>
-	<script src="script.js"></script>
+    <div class="app-shell is-entered">
+        <!-- Header -->
+        <header class="topbar">
+            <a class="brand" href="index.html" aria-label="Company home">
+                <span class="brand-mark">+</span> company
+            </a>
+            <div class="topbar-meta">
+                <span class="live-dot"></span>
+                <span id="status">Finding someone...</span>
+                <span class="divider"></span>
+                <span id="clock">00:00</span>
+            </div>
+            <button class="icon-button" id="settingsButton" type="button" aria-label="Settings" title="Settings">⚙️</button>
+        </header>
+
+        <main class="workspace" id="workspace">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="welcome-block">
+                    <p class="eyebrow">A little company</p>
+                    <h1>You don't have to be alone tonight.</h1>
+                    <p class="welcome-copy">Chat with someone who gets it. No judgment. No pressure. Just real connection.</p>
+                </div>
+
+                <div class="safety-note">
+                    <span class="note-icon">i</span>
+                    <p>Company is peer support, not emergency care. Crisis? Call Befrienders Kenya: <strong>0722 178 177</strong></p>
+                </div>
+
+                <!-- Connection Panel -->
+                <div class="connection-panel">
+                    <div class="panel-heading">
+                        <span>Connection</span>
+                        <span class="status-pill" id="statusPill">looking</span>
+                    </div>
+                    <div id="currentMatch" class="connection-row" style="display: none;">
+                        <span class="avatar small-avatar" id="matchAvatar">M</span>
+                        <div>
+                            <strong id="matchName">Someone</strong>
+                            <span id="matchStatus">chatting</span>
+                        </div>
+                        <span class="signal-bars">▌▐</span>
+                    </div>
+                    <div id="noMatch" style="text-align: center; padding: 1rem; color: #999;">
+                        <p>Waiting for someone kind...</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">This usually takes 10-30 seconds</p>
+                    </div>
+                    <button class="secondary-button" id="newConnection" type="button">
+                        Find someone new <span>&rarr;</span>
+                    </button>
+                </div>
+
+                <!-- Mode Selection -->
+                <div class="mode-selector">
+                    <button class="mode-button active" data-mode="chat" id="chatModeBtn">
+                        <span class="mode-icon">💬</span>
+                        <span>Text Chat</span>
+                    </button>
+                    <button class="mode-button" data-mode="video" id="videoModeBtn">
+                        <span class="mode-icon">📹</span>
+                        <span>Live Video</span>
+                    </button>
+                </div>
+
+                <!-- Settings Panel -->
+                <div class="support-tools">
+                    <button type="button" id="aiButton">
+                        <span class="tool-icon">✦</span>
+                        <span>
+                            <strong>AI Guide</strong>
+                            <small>Talk to our AI anytime</small>
+                        </span>
+                        <span>&rarr;</span>
+                    </button>
+                    <label class="id-toggle">
+                        <span>
+                            <strong>Show my name</strong>
+                            <small id="nameStatus">Hidden (anonymous)</small>
+                        </span>
+                        <input id="idToggle" type="checkbox">
+                        <span class="toggle-track"></span>
+                    </label>
+                    <button type="button" id="donateButton">
+                        <span class="tool-icon">❤️</span>
+                        <span>
+                            <strong>Support Company</strong>
+                            <small>Help us keep this free</small>
+                        </span>
+                        <span>&rarr;</span>
+                    </button>
+                </div>
+
+                <div class="sidebar-footer">
+                    <small>Be kind. Be real. Keep each other safe.</small>
+                </div>
+            </aside>
+
+            <!-- Chat Panel (Default) -->
+            <section class="chat-panel" id="chatPanel" style="display: none;">
+                <div class="chat-header">
+                    <div class="chat-person">
+                        <span class="avatar" id="chatAvatar">M</span>
+                        <div>
+                            <h2 id="chatName">Someone</h2>
+                            <p><span class="online-dot"></span> <span id="chatStatus">Listening</span></p>
+                        </div>
+                    </div>
+                    <button class="more-button" type="button" aria-label="More options" aria-expanded="false" id="moreButton">...</button>
+                    <div class="chat-options" id="chatOptions" hidden>
+                        <button type="button" id="clearChatButton">Clear this conversation</button>
+                        <button type="button" id="reportChatButton">Report a concern</button>
+                    </div>
+                </div>
+
+                <div class="conversation" id="conversation" aria-live="polite">
+                    <div class="date-divider"><span id="dateLabel">Today</span></div>
+                </div>
+
+                <form class="composer" id="chatForm">
+                    <button class="round-button" type="button" id="voiceButton" aria-label="Voice message" title="Use voice to write a message">🎤</button>
+                    <label class="message-input-wrap">
+                        <span class="sr-only">Write a message</span>
+                        <input id="messageInput" type="text" maxlength="500" autocomplete="off" placeholder="Write something...">
+                        <span id="characterCount">0 / 500</span>
+                    </label>
+                    <button class="send-button" type="submit" aria-label="Send message">↑</button>
+                </form>
+                <p class="composer-footnote">Be kind. Be real. Keep each other safe.</p>
+            </section>
+
+            <!-- Video Panel -->
+            <section class="video-panel" id="videoPanel" style="display: none;">
+                <div class="video-container">
+                    <div class="video-grid">
+                        <div class="video-box" id="remoteVideoBox">
+                            <video id="remoteVideo" autoplay playsinline></video>
+                            <span class="video-label" id="remoteLabel">Connecting...</span>
+                        </div>
+                        <div class="video-box" id="localVideoBox">
+                            <video id="localVideo" autoplay muted playsinline></video>
+                            <span class="video-label">You</span>
+                            <!-- Blur Control -->
+                            <div class="blur-control">
+                                <label>
+                                    <input type="checkbox" id="blurToggle">
+                                    <span>🔒 Blur my video</span>
+                                </label>
+                                <input type="range" id="blurAmount" min="0" max="20" value="0" style="display: none;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video Controls -->
+                    <div class="video-controls">
+                        <button class="control-btn" id="toggleAudioBtn" title="Mute audio">🔊</button>
+                        <button class="control-btn" id="toggleVideoBtn" title="Stop camera">📹</button>
+                        <button class="control-btn danger" id="endCallBtn" title="End call">📞</button>
+                    </div>
+
+                    <!-- Legal Disclaimer in Video -->
+                    <div class="video-notice">
+                        <span class="notice-icon">⚠️</span>
+                        <p>Video is NOT recorded. Never share personal info you wouldn't tell a stranger.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Welcome State (Initial) -->
+            <section class="welcome-panel" id="welcomePanel">
+                <div class="welcome-content">
+                    <h2>Welcome to Company</h2>
+                    <p>Choose how you'd like to connect:</p>
+                    
+                    <div class="welcome-options">
+                        <button class="welcome-card" data-mode="chat">
+                            <div class="card-icon">💬</div>
+                            <h3>Text Chat</h3>
+                            <p>Share your thoughts at your own pace. Anonymous and private.</p>
+                            <span class="card-cta">Start Chatting →</span>
+                        </button>
+                        
+                        <button class="welcome-card" data-mode="video">
+                            <div class="card-icon">📹</div>
+                            <h3>Live Video</h3>
+                            <p>Face-to-face connection with blur for privacy. Your camera stays off until you allow it.</p>
+                            <span class="card-cta">Start Video →</span>
+                        </button>
+                    </div>
+
+                    <button class="welcome-card ai-card" id="aiStartBtn">
+                        <div class="card-icon">✦</div>
+                        <h3>Talk to AI</h3>
+                        <p>Our AI guide is always available. Help naming what you feel, or just listening.</p>
+                        <span class="card-cta">Chat with AI →</span>
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Settings Modal -->
+    <dialog class="modal" id="settingsModal">
+        <button class="modal-close" type="button" aria-label="Close">✕</button>
+        <h2>Settings</h2>
+        
+        <div class="modal-section">
+            <h3>Your Profile</h3>
+            <label class="setting-row">
+                <span>Show my name</span>
+                <input type="checkbox" id="settingsNameToggle">
+                <span class="toggle-track"></span>
+            </label>
+            <small>If off, you stay anonymous</small>
+        </div>
+
+        <div class="modal-section">
+            <h3>Location</h3>
+            <button class="secondary-button" id="setLocationBtn" type="button">Share my area (optional)</button>
+            <small id="locationStatus">Only used to find nearby support</small>
+        </div>
+
+        <div class="modal-section">
+            <h3>About Company</h3>
+            <ul class="setting-list">
+                <li>Version 1.0.0 🇰🇪</li>
+                <li><button type="button" class="text-link" data-notice="Privacy controls are local by default. Your messages stay on this device.">Privacy Policy</button></li>
+                <li><button type="button" class="text-link" data-notice="Please be kind, respectful, and never share personal information with strangers.">Terms of Service</button></li>
+                <li><button type="button" class="text-link" data-notice="Thanks for helping keep Company safe. Reporting tools will be connected to the support team soon.">Report a Problem</button></li>
+            </ul>
+        </div>
+
+        <button class="primary-button modal-close" type="button">Done</button>
+    </dialog>
+
+    <!-- AI Chat Modal -->
+    <dialog class="modal" id="aiModal">
+        <button class="modal-close" type="button" aria-label="Close">✕</button>
+        <h2>Company AI Guide</h2>
+        <p>Chat with our AI for support, advice, or just to think out loud. Available 24/7.</p>
+        
+        <div class="ai-chat" id="aiChat" style="height: 300px; overflow-y: auto; border: 1px solid #eee; border-radius: 8px; padding: 1rem; margin: 1rem 0;">
+            <div class="ai-message">
+                <p>Hi there 👋 I'm here to listen. What's on your mind?</p>
+            </div>
+        </div>
+
+        <form id="aiForm" style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+            <input type="text" id="aiInput" placeholder="Tell me something..." style="flex: 1; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-family: inherit;">
+            <button type="submit" class="primary-button">Send</button>
+        </form>
+
+        <button class="secondary-button modal-close" type="button" style="width: 100%; margin-top: 1rem;">Close</button>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <!-- Donate Modal -->
+    <dialog class="modal" id="donateModal">
+        <button class="modal-close" type="button" aria-label="Close">✕</button>
+        <h2>Support Company</h2>
+        <p>Company is free and always will be. We stay alive through kind contributions from people like you.</p>
+        
+        <div class="donation-options">
+            <button class="donation-btn" data-amount="500">500 KES</button>
+            <button class="donation-btn" data-amount="1000">1,000 KES</button>
+            <button class="donation-btn" data-amount="2000">2,000 KES</button>
+            <button class="donation-btn" data-amount="5000">5,000 KES</button>
+        </div>
+
+        <div style="background: #f0f0f0; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+            <p style="font-size: 0.9rem; color: #666;">Coming soon: Stripe, M-Pesa, PayPal integration</p>
+        </div>
+
+        <button class="secondary-button modal-close" type="button">Close</button>
+    </dialog>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.11.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/face-detection@1.0.0"></script>
+    <script src="app.js"></script>
 </body>
 </html>

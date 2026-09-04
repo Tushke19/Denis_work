@@ -1,32 +1,132 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="theme-color" content="#f4efe8">
-	<title>Company | A little company, right now</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f4efe8">
+    <title>Company | Real Connection for Kenya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-	<section class="gateway" id="gateway" aria-labelledby="gateway-title">
-		<div class="gateway-image">
-			<img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=1200&q=85" alt="Two friends sharing a comforting moment">
-			<div class="image-caption"><span class="live-dot"></span> A softer place to land</div>
-		</div>
-		<div class="gateway-copy">
-			<a class="brand gateway-brand" href="#gateway" aria-label="Company home"><span class="brand-mark">+</span> company</a>
-			<div class="gateway-message">
-				<p class="eyebrow">Human company, when you need it</p>
-				<h1 id="gateway-title">You can set some of the weight down here.</h1>
-				<p>Company helps people share what they are carrying and find a kind presence to sit with them. No profile to build. No performance required. Just a place to begin.</p>
-				<a class="enter-button" href="chat.html">Enter Company <span>&rarr;</span></a>
-				<p class="gateway-note"><span class="note-icon">i</span> Your location is only requested if you choose nearby company. You can always speak with our AI guide instead.</p>
-			</div>
-			<div class="gateway-footer"><span>Private by default</span><span class="footer-line"></span><span>Peer chat + AI guide</span><span class="footer-line"></span><span>Kenya-ready</span></div>
-		</div>
-	</section>
+    <section class="gateway" id="gateway" aria-labelledby="gateway-title">
+        <div class="gateway-image">
+            <div class="gradient-overlay"></div>
+            <div class="image-caption"><span class="live-dot"></span> A space where you're not alone</div>
+        </div>
+        <div class="gateway-copy">
+            <a class="brand gateway-brand" href="#" aria-label="Company home">
+                <span class="brand-mark">+</span> company
+            </a>
+            <div class="gateway-message">
+                <p class="eyebrow">Real company, when you need it</p>
+                <h1 id="gateway-title">You don't have to carry this alone.</h1>
+                <p>Company connects Kenyans who understand depression and demotivation. Chat with real people. Join live conversations. Find someone who gets it.</p>
+                
+                <!-- Age Gate -->
+                <div class="age-gate" id="ageGate">
+                    <label class="age-confirm">
+                        <input id="ageConfirmCheckbox" type="checkbox" required>
+                        <span>I confirm I am 18 years or older</span>
+                    </label>
+                    <a class="enter-button is-disabled" id="enterButton" href="chat.html" aria-disabled="true">
+                        Enter Company <span>&rarr;</span>
+                    </a>
+                </div>
+
+                <p class="gateway-note">
+                    <span class="note-icon">i</span> 
+                    Company is a peer support platform, not emergency medical care. If you're in immediate danger, call <strong>Befrienders Kenya: 0722 178 177</strong> or emergency services.
+                </p>
+            </div>
+
+            <!-- Legal Disclaimer Section -->
+            <div class="legal-section">
+                <details>
+                    <summary>📋 Community Guidelines & Legal Notice</summary>
+                    <div class="legal-content">
+                        <h3>Important Disclaimer</h3>
+                        <p><strong>Company is not responsible for offline meetings.</strong> If you meet someone from this platform in person, you do so entirely at your own risk. We strongly recommend:</p>
+                        <ul>
+                            <li>Meeting in public places only</li>
+                            <li>Telling someone you know where you're going</li>
+                            <li>Trusting your instincts</li>
+                            <li>Not sharing personal identifying information until you're certain</li>
+                        </ul>
+                        
+                        <h3>What Company Does</h3>
+                        <ul>
+                            <li>Connects peers through chat and live video</li>
+                            <li>Requires age verification (18+)</li>
+                            <li>Stores chat history locally on your device</li>
+                            <li>Never requires personal details</li>
+                            <li>Provides access to an AI guide</li>
+                        </ul>
+
+                        <h3>What Company Is NOT</h3>
+                        <ul>
+                            <li>A mental health treatment service</li>
+                            <li>An emergency response service</li>
+                            <li>Responsible for member conduct</li>
+                            <li>A dating platform</li>
+                        </ul>
+
+                        <h3>User Conduct</h3>
+                        <p>By entering Company, you agree to:</p>
+                        <ul>
+                            <li>Be honest and respectful to others</li>
+                            <li>Not share nude or sexual content</li>
+                            <li>Not harass, threaten, or abuse others</li>
+                            <li>Not share others' information without consent</li>
+                            <li>Report abuse to us immediately</li>
+                        </ul>
+
+                        <h3>Privacy</h3>
+                        <p>Your location is only shared if you request nearby matches. Video is never recorded. Messages are stored on your device only. We use facial detection only for age verification—no faces are stored or analyzed beyond that.</p>
+
+                        <h3>Emergency Resources</h3>
+                        <p>
+                            <strong>Kenya:</strong><br>
+                            • Befrienders Kenya: 0722 178 177<br>
+                            • Kenya Red Cross: 1199<br>
+                            • Your GP or nearest hospital
+                        </p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="gateway-footer">
+                <span>Private by default</span>
+                <span class="footer-line"></span>
+                <span>Peer + AI support</span>
+                <span class="footer-line"></span>
+                <span>🇰🇪 Kenya-focused</span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const ageCheckbox = document.getElementById('ageConfirmCheckbox');
+        const enterButton = document.getElementById('enterButton');
+
+        enterButton.addEventListener('click', (event) => {
+            if (!ageCheckbox.checked) {
+                event.preventDefault();
+                ageCheckbox.focus();
+            }
+        });
+
+        ageCheckbox.addEventListener('change', () => {
+            if (ageCheckbox.checked) {
+                enterButton.classList.remove('is-disabled');
+                enterButton.removeAttribute('aria-disabled');
+            } else {
+                enterButton.classList.add('is-disabled');
+                enterButton.setAttribute('aria-disabled', 'true');
+            }
+        });
+    </script>
 </body>
 </html>
