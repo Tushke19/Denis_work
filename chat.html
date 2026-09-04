@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#f4efe8">
+	<title>Company Chat | A little company, right now</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div class="app-shell is-entered">
+		<header class="topbar">
+			<a class="brand" href="index.html" aria-label="Company home"><span class="brand-mark">+</span> company</a>
+			<div class="topbar-meta"><span class="live-dot"></span><span>Live community</span><span class="divider"></span><span id="clock">00:00</span></div>
+			<button class="icon-button" id="settings-button" type="button" aria-label="Open privacy settings" title="Privacy settings">&#9881;</button>
+		</header>
+		<main class="workspace" id="chat">
+			<aside class="sidebar">
+				<div class="welcome-block"><p class="eyebrow">A little company</p><h1>You don't have to be alone tonight.</h1><p class="welcome-copy">A calm place to talk, listen, or simply sit with someone for a while.</p></div>
+				<div class="safety-note"><span class="note-icon">i</span><p>Company is peer chat, not emergency care. If you may hurt yourself, call local emergency services now.</p></div>
+				<div class="connection-panel"><div class="panel-heading"><span>Connection</span><span class="status-pill">ready</span></div><div class="connection-row"><span class="avatar small-avatar">M</span><div><strong>Maya</strong><span>listening nearby</span></div><span class="signal-bars" aria-label="Strong connection">&#9612;&#9616;&#9618;</span></div><div class="connection-row"><span class="avatar small-avatar olive">J</span><div><strong>Jordan</strong><span>open to chat</span></div><span class="signal-bars">&#9612;&#9616;&#9618;</span></div><button class="secondary-button" id="new-connection" type="button">Find someone new <span>&rarr;</span></button></div>
+				<div class="privacy-links"><button type="button" id="location-button">Set my area <span id="location-status">optional</span></button><button type="button" id="check-button">Human check <span>18+</span></button></div>
+				<div class="support-tools"><button type="button" id="ai-button"><span class="tool-icon">✦</span><span><strong>Ask the AI guide</strong><small>Available if no one is nearby</small></span><span>&rarr;</span></button><button type="button" id="video-button"><span class="tool-icon">◉</span><span><strong>Video company</strong><small>Camera stays off until you allow it</small></span><span>&rarr;</span></button><label class="id-toggle"><span><strong>Your ID <em id="user-id-value">blurred</em></strong><small>Show only what feels right</small></span><input id="id-toggle" type="checkbox"><span class="toggle-track"></span></label></div>
+			</aside>
+			<section class="chat-panel" aria-label="Chat with Maya"><div class="chat-header"><div class="chat-person"><span class="avatar maya-avatar">M</span><div><h2>Maya</h2><p><span class="online-dot"></span> Here for a quiet conversation</p></div></div><button class="more-button" type="button" aria-label="More chat options">...</button></div><div class="conversation" id="conversation" aria-live="polite"><div class="date-divider"><span>Today, 9:41 PM</span></div><div class="message-row received"><span class="avatar tiny-avatar">M</span><div><div class="message-bubble"><p>Hey. I’m glad you found your way here.</p></div><time>9:41 PM</time></div></div><div class="message-row received"><span class="avatar tiny-avatar">M</span><div><div class="message-bubble"><p>You can say a lot, a little, or nothing at all. What kind of company would feel good right now?</p></div><time>9:42 PM</time></div></div><div class="prompt-chips" id="prompt-chips"><button type="button">I need to be heard</button><button type="button">Distract me</button><button type="button">Just stay with me</button></div></div><form class="composer" id="chat-form"><button class="round-button" type="button" id="voice-button" aria-label="Voice message" title="Voice message">&#9835;</button><label class="message-input-wrap"><span class="sr-only">Write a message</span><input id="message-input" type="text" maxlength="500" autocomplete="off" placeholder="Write something to Maya..."><span id="character-count">0 / 500</span></label><button class="send-button" type="submit" aria-label="Send message">&uarr;</button></form><p class="composer-footnote">Be kind. Be real. Keep each other safe.</p></section>
+		</main>
+	</div>
+	<dialog class="modal" id="privacy-modal"><button class="modal-close" type="button" aria-label="Close">&times;</button><p class="eyebrow">Your privacy</p><h2>Small details, your choice.</h2><p>Company never requires a sign-in. Location and camera checks are optional, explained before they run, and can be skipped at any time.</p><button class="primary-button modal-close-action" type="button">Got it</button></dialog>
+	<dialog class="modal" id="ai-modal"><button class="modal-close" type="button" aria-label="Close">&times;</button><p class="eyebrow">Company guide</p><h2>A steady place to start.</h2><p>The AI guide can help you name what you feel, find a next small step, or keep you company while we look for a person. It is not an emergency service and will ask before saving anything.</p><label class="age-confirm"><input id="ai-consent" type="checkbox"> <span>I agree to chat with the AI guide.</span></label><button class="primary-button" id="start-ai" type="button">Start with the guide</button></dialog>
+	<dialog class="modal" id="check-modal"><button class="modal-close" type="button" aria-label="Close">&times;</button><p class="eyebrow">Optional community check</p><h2>Confirm you’re human and 18+</h2><p>This demo uses your camera only to show a local preview. It does not identify you or store an image. You choose whether to continue.</p><label class="age-confirm"><input id="age-confirm" type="checkbox"> <span>I confirm I am 18 or older.</span></label><div class="camera-preview"><video id="camera-video" autoplay muted playsinline></video><span id="camera-placeholder">Camera preview appears here</span></div><div class="modal-actions"><button class="secondary-button" id="skip-check" type="button">Skip for now</button><button class="primary-button" id="start-camera" type="button">Start camera check</button></div><p class="modal-status" id="check-status"></p></dialog>
+	<script src="script.js"></script>
+</body>
+</html>
